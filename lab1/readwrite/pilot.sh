@@ -12,7 +12,7 @@ echo "n,mode,real,user,sys" > "$OUT"
 
 for i in $(seq 1 "$N"); do
   echo -n "$i,read," >> "$OUT"
-  { time nice -n -20 taskset -c 0 ./graph_traverse 1 graph-seq.bin 2> /dev/null ; } 2>> "$OUT"
+  { time nice -n -20 taskset -c 0 ./graph_traverse 1 ../graph-seq.bin 2> /dev/null ; } 2>> "$OUT"
   echo -n "$i,write," >> "$OUT"
-  { time nice -n -20 taskset -c 0 ./graph_traverse --write 1 graph-seq.bin 2> /dev/null ; } 2>> "$OUT"
+  { time nice -n -20 taskset -c 0 ./graph_traverse --write 1 ../graph-seq.bin 2> /dev/null ; } 2>> "$OUT"
 done
